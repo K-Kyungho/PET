@@ -1,0 +1,108 @@
+#PET
+iFashion:
+  data_path: './datasets'
+  batch_size_train: 2048
+  batch_size_test: 2048
+  topk: [20, 40] # Recall@k, NDCG@k
+  neg_num: 1 # # of Negative sample
+  lrs: [1.0e-3] # learning rate
+
+  # best settings
+  embedding_sizes: [256] # the embedding size for user, bundle, and item
+  num_layerss: [1] # how many layers to propagate each main view, we set 1 layer in all dataset
+  
+  # Dropout ratio for each view
+  q_ui: [0.3]
+  q_ub: [0.1]
+  q_bi: [0.1]
+  
+  l2_regs: [1.0e-7] # weight decay
+  up_regs : [1.0e-5] # weight for R_div regularizer
+  
+  beta_bi : [0.01] # control data enhancement
+  beta_ui : [0.03] # control data enhancement
+
+  c_lambdas: [2.0] # inter-CL loss weight
+  c_temps: [0.2] # temperature parameter of inter-cl 
+
+  c_lambdas_int: [2.0] # intra-cl loss weight
+  c_temps_int: [0.2] # temperature parameter of intra-cl
+  
+  c_aux : [0.3] # L_aux loss weight
+  c_bpr: [0.3]
+  alpha: [1.0]
+
+  epochs: 200
+  test_interval: 4
+
+NetEase:
+  data_path: './datasets'
+  batch_size_train: 2048
+  batch_size_test: 2048
+  topk: [20, 40]
+  neg_num: 1
+  lrs: [1.0e-3]
+  
+  # best settings
+  embedding_sizes: [256]
+  num_layerss: [1]
+
+  q_ui: [0.3]
+  q_ub: [0.7]
+  q_bi: [0.3]
+
+  l2_regs: [5.0e-6]
+  up_regs : [1.0e-5]
+  
+  beta_bi : [1.0]
+  beta_ui : [0.03]
+  
+  c_lambdas: [0.5]
+  c_temps: [0.3]
+
+  c_lambdas_int: [0.2]
+  c_temps_int: [0.5]
+  
+  c_aux : [0.3]
+  c_bpr: [0.2]
+  alpha: [3.0]
+
+  epochs: 200
+  test_interval: 3
+
+
+Youshu:
+  data_path: './datasets'
+  batch_size_train: 2048
+  batch_size_test: 2048
+  topk: [20, 40]
+  neg_num: 1 
+  lrs: [1.0e-3] 
+  
+  # best settings
+  embedding_sizes: [256]
+  num_layerss: [1]
+
+  q_ui: [0.5] 
+  q_ub: [0.7] 
+  q_bi: [0.3] 
+
+  l2_regs: [3.0e-5]
+  up_regs : [3.0e-6]
+  
+  beta_bi : [1.0]
+  beta_ui : [0.1]
+  
+  c_lambdas: [0.07] 
+  c_temps: [0.3] 
+  c_lambdas_int: [0.05] 
+  c_temps_int: [0.5]
+  
+  c_aux : [0.2]
+  c_bpr: [0.2]
+  alpha: [2.0]
+
+  epochs: 200
+  test_interval: 2 
+
+
