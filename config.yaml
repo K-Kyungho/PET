@@ -60,7 +60,7 @@ NetEase:
   c_lambdas: [0.5]
   c_temps: [0.3]
 
-  c_lambdas_int: [0.07]
+  c_lambdas_int: [0.2]
   c_temps_int: [0.5]
   
   c_aux : [0.3]
