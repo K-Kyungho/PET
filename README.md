@@ -5,7 +5,7 @@ This is the official implementation of PET **(Personalized View Weighting with D
 ---
 ### Supplementary Document
 For additional data anlysis results and details about loss function, you can check here.
-[Supplementary.pdf](https://github.com/user-attachments/files/15715970/Supplementary.pdf)
+[Supplementary Document.pdf](https://github.com/user-attachments/files/16517527/Supplementary.Document.pdf)
 
 ---
 
