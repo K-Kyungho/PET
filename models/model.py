@@ -448,7 +448,7 @@ class PET(nn.Module):
         
         IL_users_feature_aug1, IL_users_feature_aug, BL_users_feature_aug1, BL_users_feature_aug, BI_users_feature_aug1 = users_feature
 
-        IL_items_feature_aug1, IL_items_feature_aug, BI_items_feature_aug1, BI_items_feature_aug = items_feature # !!!
+        IL_items_feature_aug1, IL_items_feature_aug, BI_items_feature_aug1, BI_items_feature_aug = items_feature
 
         IL_bundles_feature_aug1, BL_bundles_feature_aug1, BL_bundles_feature_aug, BI_bundles_feature_aug1, BI_bundles_feature_aug = bundles_feature
         
@@ -479,7 +479,7 @@ class PET(nn.Module):
         b_cross_view_cl_1 = self.cal_c_loss(IL_bundles_feature_aug1, BL_bundles_feature_aug1)
         b_cross_view_cl_2 = self.cal_c_loss(BL_bundles_feature_aug1, BI_bundles_feature_aug1)
 
-        c_losses = [u_cross_view_cl_1, u_cross_view_cl_2, b_cross_view_cl_1, b_cross_view_cl_2]# i cross 뺌
+        c_losses = [u_cross_view_cl_1, u_cross_view_cl_2, b_cross_view_cl_1, b_cross_view_cl_2]
         
         c_loss = sum(c_losses) / len(c_losses)
         
@@ -491,7 +491,7 @@ class PET(nn.Module):
         b_self_view_cl_1 = self.cal_c_loss_int(BL_bundles_feature_aug1, BL_bundles_feature_aug)
         b_self_view_cl_2 = self.cal_c_loss_int(BI_bundles_feature_aug1, BI_bundles_feature_aug)
         
-        c_losses_int = [u_self_view_cl_1, u_self_view_cl_2, b_self_view_cl_1, b_self_view_cl_2]# i cross 뺌
+        c_losses_int = [u_self_view_cl_1, u_self_view_cl_2, b_self_view_cl_1, b_self_view_cl_2]
         
         c_loss_intra = sum(c_losses_int) / len(c_losses_int)
         
@@ -590,7 +590,7 @@ class PET(nn.Module):
             
         param = torch.sigmoid(torch.cat((IL_param, BL_param, BI_param), dim = 1))          
             
-        user_parameter = F.softmax(param, dim = 1) # 2048 3
+        user_parameter = F.softmax(param, dim = 1)
             
         IL_up = user_parameter[:, 0].unsqueeze(1)
         BL_up = user_parameter[:, 1].unsqueeze(1)
