@@ -33,6 +33,8 @@ python train.py -d Youshu -g [gpu_id]
 ---
 
 ### Citation
+We appreciate your interest in our work. If our research contributes to your projects, please consider citing our paper:
+
 ```bibtex
 @inproceedings{kim2024towards,
   title={Towards Better Utilization of Multiple Views for Bundle Recommendation},
