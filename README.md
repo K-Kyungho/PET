@@ -31,5 +31,8 @@ python train.py -d NetEase -g [gpu_id]
 python train.py -d Youshu -g [gpu_id]   
 ```
 ---
+### Citation
+
+
 ### Acknowledgement
 This code is implemented based on the open source code from the paper **CrossCBR : Cross-view Contrastive Learning for Bundle Recommendation** (KDD '22).
