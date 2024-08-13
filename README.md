@@ -33,13 +33,14 @@ python train.py -d Youshu -g [gpu_id]
 ---
 
 ### Citation
+```bibtex
 @inproceedings{kim2024towards,
-title={Towards Better Utilization of Multiple Views for Bundle Recommendation},
-author={Kim, Kyungho and Kim, Sunwoo and Lee, Geon and Shin, Kijung},
-booktitle={CIKM},
-year={2024}
+  title={Towards Better Utilization of Multiple Views for Bundle Recommendation},
+  author={Kim, Kyungho and Kim, Sunwoo and Lee, Geon and Shin, Kijung},
+  booktitle={CIKM},
+  year={2024}
 }
-
+```
 ---
 ### Acknowledgement
 This code is implemented based on the open source code from the paper **CrossCBR : Cross-view Contrastive Learning for Bundle Recommendation** (KDD '22).
