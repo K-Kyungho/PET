@@ -178,7 +178,8 @@ class Datasets():
         b_b_for_neg_sample = np.argsort(b_b_from_i, axis=1)[:, bn2_window[0]:bn2_window[1]]
 
         return u_b_for_neg_sample, b_b_for_neg_sample
-    
+
+    # get bundle-item graph
     def get_bi(self):
         with open(os.path.join(self.path, self.name, 'bundle_item.txt'), 'r') as f:
             b_i_pairs = list(map(lambda s: tuple(int(i) for i in s[:-1].split('\t')), f.readlines()))
