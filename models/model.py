@@ -43,7 +43,7 @@ def to_tensor(graph):
 
     return graph
 
-
+# Edge dropout function
 def np_edge_dropout(values, dropout_ratio):
     mask = np.random.choice([0, 1], size=(len(values),), p=[dropout_ratio, 1-dropout_ratio])
     values = mask * values
