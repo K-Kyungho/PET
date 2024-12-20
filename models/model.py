@@ -563,7 +563,7 @@ class PET(nn.Module):
 
         return bpr_loss_main, bpr_loss_aux, c_loss, c_loss_int, up_reg
 
-
+    # Evaluate function
     def evaluate(self, propagate_result, users):
 
         users_feature, items_feature, bundles_feature = propagate_result
