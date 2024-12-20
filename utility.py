@@ -101,7 +101,7 @@ class BundleTrainDataset(Dataset):
         
         return len(self.u_b_pairs)
 
-
+# Test Dataset
 class BundleTestDataset(Dataset):
     def __init__(self, u_b_pairs, u_b_graph, u_b_graph_train, num_users, num_bundles):
         self.u_b_pairs = u_b_pairs
