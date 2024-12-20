@@ -171,7 +171,8 @@ def main():
                 bpr_loss_aux_scalar = bpr_loss_aux.detach()
                 c_loss_scalar = c_loss.detach()
                 c_loss_int_scalar = c_loss_int.detach()
-                
+
+                # loss output
                 run.add_scalar("loss_bpr_main", bpr_loss_main_scalar, batch_anchor)
                 run.add_scalar("loss_bpr_aux", bpr_loss_aux_scalar, batch_anchor)
                 run.add_scalar("loss_c", c_loss_scalar, batch_anchor)
@@ -242,6 +243,7 @@ def log_metrics(conf, model, metrics, run, log_path, checkpoint_model_path, chec
 
     log = open(log_path, "a")
 
+    # You can change topk value
     topk_ = 20
     print("top%d as the final evaluation standard" %(topk_))
     if metrics["test"]["recall"][topk_] > best_metrics["test"]["recall"][topk_] and metrics["test"]["ndcg"][topk_] > best_metrics["test"]["ndcg"][topk_]:
@@ -266,7 +268,7 @@ def log_metrics(conf, model, metrics, run, log_path, checkpoint_model_path, chec
 
     return best_metrics, best_perform, best_epoch
 
-
+# test 
 def test(model, dataloader, conf):
     tmp_metrics = {}
     for m in ["recall", "ndcg"]:
@@ -292,7 +294,7 @@ def test(model, dataloader, conf):
 
     return metrics
 
-
+# Recall, NDCG
 def get_metrics(metrics, grd, pred, topks):
     tmp = {"recall": {}, "ndcg": {}}
     for topk in topks:
