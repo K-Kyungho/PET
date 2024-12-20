@@ -527,7 +527,8 @@ class PET(nn.Module):
         self.users_feature_prop = [IL_users_feature_aug1, IL_users_feature_aug, BL_users_feature_aug1, BL_users_feature_aug, BI_users_feature_aug1]
         self.bundles_feature_prop = [IL_bundles_feature_aug1, BL_bundles_feature_aug1, BL_bundles_feature_aug, BI_bundles_feature_aug1, BI_bundles_feature_aug] 
         self.items_feature_prop = [IL_items_feature_aug1, IL_items_feature_aug, BI_items_feature_aug1, BI_items_feature_aug]
-        
+
+        # Get personalized weight
         users_embedding = [i[users].expand(-1, bundles.shape[1], -1) for i in self.users_feature_prop]
         items_embedding = [i[items] for i in self.items_feature_prop]
         bundles_embedding = [i[bundles] for i in self.bundles_feature_prop]
@@ -541,6 +542,7 @@ class PET(nn.Module):
         
         BIBI = torch.sum((BI_users_feature_aug1 * BI_users_feature_aug1 / math.sqrt(self.embedding_size)), dim = 1)
 
+        
         self.IL_emb = torch.stack((ILIL, ILBL, ILBI), dim = 1) 
         self.BL_emb = torch.stack((ILBL, BLBL, BLBI), dim = 1) 
         self.BI_emb = torch.stack((ILBI, BLBI, BIBI), dim = 1) 
