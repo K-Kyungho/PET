@@ -416,7 +416,7 @@ class PET(nn.Module):
             
         return users_feature, items_feature, bundles_feature
 
-    # Contrastive loss
+    # Contrastive loss (Inter)
     def cal_c_loss(self, pos, aug):
         pos = pos[:, 0, :]
         aug = aug[:, 0, :]
@@ -433,6 +433,7 @@ class PET(nn.Module):
 
         return c_loss
 
+    # # Contrastive loss (Intra)
     def cal_c_loss_int(self, pos, aug):
 
         pos = pos[:, 0, :]
@@ -448,7 +449,7 @@ class PET(nn.Module):
         c_loss = - torch.mean(torch.log(pos_score / ttl_score))
 
         return c_loss
-        
+
     def cal_loss(self, users_feature, items_feature, bundles_feature, user_parameter):
         
         IL_users_feature_aug1, IL_users_feature_aug, BL_users_feature_aug1, BL_users_feature_aug, BI_users_feature_aug1 = users_feature
