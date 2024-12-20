@@ -192,7 +192,7 @@ class Datasets():
 
         return b_i_graph
 
-
+    # get user-item graph
     def get_ui(self):
         with open(os.path.join(self.path, self.name, 'user_item.txt'), 'r') as f:
             u_i_pairs = list(map(lambda s: tuple(int(i) for i in s[:-1].split('\t')), f.readlines()))
