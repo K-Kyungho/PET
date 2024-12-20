@@ -11,7 +11,7 @@ import scipy.sparse as sp
 
 import math
 
-
+# BPR loss function
 def cal_bpr_loss(pred):
     # pred: [bs, 1+neg_num]
     if pred.shape[1] > 2:
@@ -26,7 +26,7 @@ def cal_bpr_loss(pred):
 
     return loss
 
-
+# Graph laplace transformation function
 def laplace_transform(graph):
     rowsum_sqrt = sp.diags(1/(np.sqrt(graph.sum(axis=1).A.ravel()) + 1e-8))
     colsum_sqrt = sp.diags(1/(np.sqrt(graph.sum(axis=0).A.ravel()) + 1e-8))
@@ -87,6 +87,7 @@ class PET(nn.Module):
         self.ub_main_view_graph_aug2()
         self.bi_main_view_graph_aug2()
 
+        # generate the sub-view graph for average pooling.
         self.ui_sub_view_graph()
         self.ui_sub_view_graph_ori()
         

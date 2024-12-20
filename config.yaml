@@ -4,7 +4,7 @@ iFashion:
   batch_size_train: 2048 
   batch_size_test: 2048
   topk: [20, 40] # Recall@k, NDCG@k 
-  neg_num: 1 # # of Negative sample
+  neg_num: 1 # # of Negative sample for BPR loss training
   lrs: [1.0e-3] # learning rate
 
   # best settings
@@ -29,11 +29,11 @@ iFashion:
   c_temps_int: [0.2] # temperature parameter of intra-cl
   
   c_aux : [0.3] # L_aux loss weight
-  c_bpr: [0.3]
+  c_bpr: [0.3] 
   alpha: [1.0]
 
   epochs: 200
-  test_interval: 4
+  test_interval: 4 # You can increase interval or even decrease interval.
 
 NetEase:
   data_path: './datasets'
