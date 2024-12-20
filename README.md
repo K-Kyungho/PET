@@ -1,13 +1,11 @@
 # PET
 This is the official implementation of PET **(Personalized View Weighting with Data Enhancement Two-Pronged Contrast)** 
-(CIKM 2024 Short Paper Track) 
+(CIKM 2024 Short Paper Track) [[Paper Link](https://dl.acm.org/doi/10.1145/3627673.3680003)]
 
 ---
 ### Supplementary Document
 For additional data anlysis results and details about loss function, you can check here.
 [Supplementary Document](https://github.com/user-attachments/files/17536033/_CIKM24__Bundle_Recommendation__Online_Appendix_.pdf)
-
-)
 
 ### Datasets
 We use three widely used datasets for bundle recommendation, **iFashion**, **NetEase** and **Youshu**.
