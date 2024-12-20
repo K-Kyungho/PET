@@ -91,6 +91,7 @@ class PET(nn.Module):
         self.ub_main_view_graph_aug2()
         self.bi_main_view_graph_aug2()
 
+        # generate the sub-view graph for average pooling.
         self.ui_sub_view_graph()
         self.ui_sub_view_graph_ori()
         
