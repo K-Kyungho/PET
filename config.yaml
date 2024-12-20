@@ -1,7 +1,7 @@
 #PET Best Configuration
 iFashion:
-  data_path: './datasets'
-  batch_size_train: 2048
+  data_path: './datasets' # dataset path
+  batch_size_train: 2048 
   batch_size_test: 2048
   topk: [20, 40] # Recall@k, NDCG@k 
   neg_num: 1 # # of Negative sample
