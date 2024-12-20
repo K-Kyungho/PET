@@ -77,7 +77,8 @@ class PET(nn.Module):
         
         self.beta_bi = self.conf["beta_bi"]
         self.beta_ui = self.conf["beta_ui"]
-        # generate the graph without any dropouts for testing
+        
+        # generate the graph without any dropouts (augmentation) for testing
         self.ui_main_view_graph_ori()
         self.ub_main_view_graph_ori()
         self.bi_main_view_graph_ori()
@@ -114,6 +115,7 @@ class PET(nn.Module):
         self.ub_dropout = nn.Dropout(self.conf["q_ub"], True)
         self.bi_dropout = nn.Dropout(self.conf["q_bi"], True)
 
+    # Initialize embedding and linear layer
     def init_emb(self):
         self.users_feature = nn.Parameter(torch.FloatTensor(self.num_users, self.embedding_size))
         nn.init.xavier_normal_(self.users_feature)
@@ -129,7 +131,8 @@ class PET(nn.Module):
         nn.init.xavier_uniform_(self.L1.weight)
         nn.init.xavier_uniform_(self.L2.weight)
         nn.init.xavier_uniform_(self.L3.weight)
-        
+
+    # Sub view graph
     def ui_sub_view_graph(self):
         ui_graph = self.ui_graph
         device = self.device
@@ -186,7 +189,7 @@ class PET(nn.Module):
         values = np_edge_dropout(graph.data, modification_ratio)
         bi_graph = sp.coo_matrix((values, (graph.row, graph.col)), shape=graph.shape).tocsr()
 
-        bundle_size = bi_graph.sum(axis=1) + 1e-8 #
+        bundle_size = bi_graph.sum(axis=1) + 1e-8 # To prevent zero value
         bi_graph = sp.diags(1/bundle_size.A.ravel()) @ bi_graph
         
         self.bi_sub_graph = to_tensor(bi_graph).to(device)
