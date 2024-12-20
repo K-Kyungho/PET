@@ -20,6 +20,7 @@ from itertools import product
 def get_cmd():
     parser = argparse.ArgumentParser()
     # experimental settings
+    # Other hyperparameter configurations are in config.yaml
     parser.add_argument("-g", "--gpu", default="0", type=str, help="which gpu to use")
     parser.add_argument("-d", "--dataset", default="Youshu", type=str, help="which dataset to use, options: iFashion, NetEase, iFashion")
     parser.add_argument("-m", "--model", default="PET", type=str, help="which model to use, options: PET")
@@ -127,7 +128,7 @@ def main():
             
         run = SummaryWriter(run_path)
 
-        # model
+        # model initialization
         if conf['model'] == 'PET':
             model = PET(conf, dataset.graphs).to(device)
         else:
@@ -138,7 +139,7 @@ def main():
         test_interval_bs = int(batch_cnt * conf["test_interval"])
 
         for epoch in range(conf['epochs']):
-            
+            # For augmentation per epoch
             model.ui_main_view_graph()
             model.ub_main_view_graph()
             model.bi_main_view_graph()
@@ -183,6 +184,7 @@ def main():
                     metrics = {}
                     metrics["val"] = test(model, dataset.val_loader, conf)
                     metrics["test"] = test(model, dataset.test_loader, conf)
+                    # evaluation
                     best_metrics, best_perform, best_epoch = log_metrics(conf, model, metrics, run, log_path, checkpoint_model_path, checkpoint_conf_path, epoch, batch_anchor, best_metrics, best_perform, best_epoch)
                     topk_ = 20
                     current_performance_rec = metrics["test"]["recall"][topk_]
