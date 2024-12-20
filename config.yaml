@@ -3,13 +3,13 @@ iFashion:
   data_path: './datasets'
   batch_size_train: 2048
   batch_size_test: 2048
-  topk: [20, 40] # Recall@k, NDCG@k
+  topk: [20, 40] # Recall@k, NDCG@k 
   neg_num: 1 # # of Negative sample
   lrs: [1.0e-3] # learning rate
 
   # best settings
   embedding_sizes: [256] # the embedding size for user, bundle, and item
-  num_layerss: [1] # how many layers to propagate each main view, we set 1 layer in all dataset
+  num_layerss: [1] # how many layers to propagate each main view, we set 1 layer for GNN in all dataset
   
   # Dropout ratio for each view
   q_ui: [0.3]
@@ -17,7 +17,7 @@ iFashion:
   q_bi: [0.1]
   
   l2_regs: [1.0e-7] # weight decay
-  up_regs : [1.0e-5] # weight for R_div regularizer
+  up_regs : [1.0e-5] # weight for R_div regularizer for personalized weight
   
   beta_bi : [0.01] # control data enhancement
   beta_ui : [0.03] # control data enhancement
