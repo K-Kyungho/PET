@@ -450,6 +450,7 @@ class PET(nn.Module):
 
         return c_loss
 
+    # Calculate contrastive loss
     def cal_loss(self, users_feature, items_feature, bundles_feature, user_parameter):
         
         IL_users_feature_aug1, IL_users_feature_aug, BL_users_feature_aug1, BL_users_feature_aug, BI_users_feature_aug1 = users_feature
