@@ -15,7 +15,7 @@ import copy
 import random
 import math
 
-
+# BPR loss function
 def cal_bpr_loss(pred):
     # pred: [bs, 1+neg_num]
     if pred.shape[1] > 2:
@@ -30,7 +30,7 @@ def cal_bpr_loss(pred):
 
     return loss
 
-
+# Graph laplace transformation function
 def laplace_transform(graph):
     rowsum_sqrt = sp.diags(1/(np.sqrt(graph.sum(axis=1).A.ravel()) + 1e-8))
     colsum_sqrt = sp.diags(1/(np.sqrt(graph.sum(axis=0).A.ravel()) + 1e-8))
