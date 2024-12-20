@@ -511,7 +511,7 @@ class PET(nn.Module):
         return bpr_loss_main, bpr_loss_aux, c_loss, c_loss_intra, up_reg
     
     def forward(self, batch):
-        #Augmentation for sub-view
+        #Augmentation for sub-view (per batch)
         self.ui_sub_view_graph()
         self.ub_sub_view_graph()
         self.bi_sub_view_graph()
@@ -557,7 +557,7 @@ class PET(nn.Module):
         param = torch.sigmoid(torch.cat((IL_param, BL_param, BI_param), dim = 1)) 
         param = param[users, :].squeeze(1)
         
-        user_parameter = F.softmax(param , dim = 1) # 2048 3
+        user_parameter = F.softmax(param , dim = 1) # [bs, 3]
         
         bpr_loss_main, bpr_loss_aux, c_loss, c_loss_int, up_reg = self.cal_loss(users_embedding, items_embedding, bundles_embedding, user_parameter)
 
