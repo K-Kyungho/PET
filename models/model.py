@@ -341,7 +341,7 @@ class PET(nn.Module):
         bundle_item_graph = sp.bmat([[sp.csr_matrix((bi_graph.shape[0], bi_graph.shape[0])), bi_graph], [bi_graph.T, sp.csr_matrix((bi_graph.shape[1], bi_graph.shape[1]))]])
         self.bi_main_graph_ori = to_tensor(laplace_transform(bundle_item_graph)).to(device)
         
-        
+    # Graph Propagation
     def one_propagate(self, graph, A_feature, B_feature, mess_dropout, test):
         features = torch.cat((A_feature, B_feature), 0)
         all_features = [features]
