@@ -1,4 +1,4 @@
-#PET
+#PET Best Configuration
 iFashion:
   data_path: './datasets'
   batch_size_train: 2048
