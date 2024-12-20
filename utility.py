@@ -20,6 +20,7 @@ def print_statistics(X, string):
     print('Non-zero columns', len(unique_nonzero_col_indice)/X.shape[1])
     print('Matrix density', len(nonzero_row_indice)/(X.shape[0]*X.shape[1]))
 
+# Train Dataset
 class ItemTrainDataset(Dataset):
     def __init__(self, conf, u_i_pairs, u_i_graph, num_items, u_i_for_neg_sample, i_i_for_neg_sample, neg_sample = 1):
         self.conf = conf
