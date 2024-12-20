@@ -415,7 +415,8 @@ class PET(nn.Module):
             bundles_feature = [BL_bundles_feature_aug1, BL_bundles_feature_aug, BI_bundles_feature_aug1, BI_bundles_feature_aug]
             
         return users_feature, items_feature, bundles_feature
-    
+
+    # Contrastive loss
     def cal_c_loss(self, pos, aug):
         pos = pos[:, 0, :]
         aug = aug[:, 0, :]
