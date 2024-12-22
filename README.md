@@ -14,8 +14,10 @@ For the iFashion dataset, please unzip data.zip in the same folder.
 
 ---
 ### How to run PET
+* **Installation**
 ```bash
 cd PET
+pip install -r requirements.txt
 ```
 * **iFashion**
 ```bash
